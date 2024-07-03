@@ -1,18 +1,10 @@
-import React, { useState } from 'react';
+// pages/Favorites.tsx
+import React from 'react';
 import VideoItem from '../components/VideoItem';
+import { useFavorites } from '../context/FavoritesContext';
 
 const Favorites: React.FC = () => {
-  const [favorites, setFavorites] = useState<any[]>([]);
-
-  const handleFavorite = (video: any) => {
-    if (!favorites.some((fav) => fav.id.videoId === video.id.videoId)) {
-      setFavorites([...favorites, video]);
-    }
-  };
-
-  const handleUnfavorite = (video: any) => {
-    setFavorites(favorites.filter((fav) => fav.id.videoId !== video.id.videoId));
-  };
+  const { favorites, removeFavorite } = useFavorites();
 
   return (
     <div>
@@ -22,12 +14,12 @@ const Favorites: React.FC = () => {
           <p>No favorite videos yet.</p>
         ) : (
           favorites.map((video) => (
-            <VideoItem
-              key={video.id.videoId}
-              video={video}
-              isFavorite={true}
-              onFavorite={handleFavorite}
-              onUnfavorite={handleUnfavorite}
+            <VideoItem 
+              key={video.id.videoId} 
+              video={video} 
+              isFavorite={true} 
+              onFavorite={() => {}} 
+              onUnfavorite={removeFavorite} 
             />
           ))
         )}

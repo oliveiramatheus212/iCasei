@@ -1,8 +1,9 @@
+// pages/Videos.tsx
 import React, { useState, useEffect } from 'react';
 import { searchVideos } from '../api/youtube';
 import VideoItem from '../components/VideoItem';
 
-const Videos: React.FC = () => {
+const VideosPage: React.FC = () => {
   const [query, setQuery] = useState('');
   const [videos, setVideos] = useState<any[]>([]);
   const [favorites, setFavorites] = useState<any[]>(() => {
@@ -60,4 +61,4 @@ const Videos: React.FC = () => {
   );
 };
 
-export default Videos;
+export default VideosPage;
