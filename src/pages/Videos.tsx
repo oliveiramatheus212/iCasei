@@ -1,4 +1,3 @@
-// pages/Videos.tsx
 import React from 'react';
 import { searchVideos } from '../api/youtube';
 import VideoItem from '../components/VideoItem';

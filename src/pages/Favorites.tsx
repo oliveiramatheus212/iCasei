@@ -1,4 +1,3 @@
-// pages/Favorites.tsx
 import React from 'react';
 import VideoItem from '../components/VideoItem';
 import { useFavorites } from '../context/FavoritesContext';
