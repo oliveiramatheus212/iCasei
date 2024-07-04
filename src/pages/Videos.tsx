@@ -1,5 +1,5 @@
 // pages/Videos.tsx
-import React, { useEffect } from 'react';
+import React from 'react';
 import { searchVideos } from '../api/youtube';
 import VideoItem from '../components/VideoItem';
 import { useSearch } from '../context/SearchContext';
@@ -8,15 +8,6 @@ import { useFavorites } from '../context/FavoritesContext';
 const VideosPage: React.FC = () => {
   const { query, setQuery, videos, setVideos } = useSearch();
   const { favorites, addFavorite, removeFavorite } = useFavorites();
-
-  useEffect(() => {
-    if (query) {
-      (async () => {
-        const results = await searchVideos(query);
-        setVideos(results);
-      })();
-    }
-  }, [query, setVideos]);
 
   const handleSearch = async () => {
     const results = await searchVideos(query);
