@@ -1,4 +1,4 @@
-# Video Search and Favorites App
+# iCasei App
 
 This project is a React application that allows users to search for videos using the YouTube API and favorite them for later viewing. The app includes two main pages: a search page for finding videos and a favorites page for viewing the saved videos.
 
