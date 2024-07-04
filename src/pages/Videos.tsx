@@ -1,31 +1,26 @@
 // pages/Videos.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { searchVideos } from '../api/youtube';
 import VideoItem from '../components/VideoItem';
+import { useSearch } from '../context/SearchContext';
+import { useFavorites } from '../context/FavoritesContext';
 
 const VideosPage: React.FC = () => {
-  const [query, setQuery] = useState('');
-  const [videos, setVideos] = useState<any[]>([]);
-  const [favorites, setFavorites] = useState<any[]>(() => {
-    const saved = localStorage.getItem('favorites');
-    return saved ? JSON.parse(saved) : [];
-  });
+  const { query, setQuery, videos, setVideos } = useSearch();
+  const { favorites, addFavorite, removeFavorite } = useFavorites();
 
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }, [favorites]);
+    if (query) {
+      (async () => {
+        const results = await searchVideos(query);
+        setVideos(results);
+      })();
+    }
+  }, [query, setVideos]);
 
   const handleSearch = async () => {
     const results = await searchVideos(query);
     setVideos(results);
-  };
-
-  const handleFavorite = (video: any) => {
-    setFavorites([...favorites, video]);
-  };
-
-  const handleUnfavorite = (video: any) => {
-    setFavorites(favorites.filter(fav => fav.id.videoId !== video.id.videoId));
   };
 
   const isFavorite = (video: any) => {
@@ -52,8 +47,8 @@ const VideosPage: React.FC = () => {
             key={video.id.videoId} 
             video={video} 
             isFavorite={isFavorite(video)} 
-            onFavorite={handleFavorite} 
-            onUnfavorite={handleUnfavorite} 
+            onFavorite={addFavorite} 
+            onUnfavorite={removeFavorite} 
           />
         ))}
       </div>
