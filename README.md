@@ -1,46 +1,82 @@
-# Getting Started with Create React App
+# Video Search and Favorites App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React application that allows users to search for videos using the YouTube API and favorite them for later viewing. The app includes two main pages: a search page for finding videos and a favorites page for viewing the saved videos.
 
-## Available Scripts
+## Project:
 
-In the project directory, you can run:
+![Captura de tela 2024-07-03 201516](https://github.com/oliveiramatheus212/iCasei/assets/61399334/22a61b92-4f86-49c2-903a-091b78c17891)
+![Captura de tela 2024-07-03 201549](https://github.com/oliveiramatheus212/iCasei/assets/61399334/b9b528b7-15fc-4b5d-98fe-4852edb67ba8)
+![Captura de tela 2024-07-03 201604](https://github.com/oliveiramatheus212/iCasei/assets/61399334/4b0f6cce-c9a5-43a5-8cce-9c4c2ee3dc26)
+![Captura de tela 2024-07-03 201620](https://github.com/oliveiramatheus212/iCasei/assets/61399334/08be683a-7c7b-432b-a192-1eab41a9a10e)
 
-### `npm start`
+### Deploy
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The app was also deployed with NetlifyApp and it's running on: https://icasei.netlify.app/
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **Video Search**: Search for videos using the YouTube API.
+- **Favorites Management**: Add or remove videos from favorites.
+- **Persistent State**: Favorite videos are stored in `localStorage` to persist between sessions.
+- **Navigation**: Navigate between the search page and the favorites page.
+- **Context API**: Utilizes React Context API to manage state across the application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+- React
+- TypeScript
+- Tailwind CSS
+- React Router
+- YouTube API
+- Context API
+- Local Storage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ensure you have the following installed:
 
-### `npm run eject`
+- Node.js
+- npm (Node Package Manager)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone the repository:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    ```sh
+    git clone https://github.com/oliveiramatheus212/iCasei.git
+    cd iCasei
+    ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. **Install dependencies:**
 
-## Learn More
+    ```sh
+    npm install
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Generate your API key:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   create or use an existing google account.
+   
+   go to: https://console.cloud.google.com/welcome?project=icasei-428122
+
+   follow the steps on: https://www.youtube.com/watch?v=uz7dY8qTFJw
+
+4. **Use your API key:**
+
+   open the project
+
+   navigate to src/api/youtube.ts
+
+   on line 3: const API_KEY = 'YOUR API KEY HERE';
+
+   replace YOUR API KEY HERE for your generated API key.
+
+5. **Start the development server:**
+
+    ```sh
+    npm start
+    ```
+
+    The app should now be running on `http://localhost:3000`.
